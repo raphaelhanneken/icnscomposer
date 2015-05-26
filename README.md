@@ -10,6 +10,7 @@ Make sure to visit the [homepage](behoernchen.github.io/icnscomposer/index.html)
 ## How do I install it? ##
 
 You have two options:
+
 1. Download the latest [release](https://github.com/behoernchen/IcnsComposer/releases) and drop it into your Applications folder.
 2. Download the source code and build it with Xcode yourself.
 
