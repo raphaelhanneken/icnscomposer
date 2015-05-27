@@ -4,7 +4,7 @@ If you're like me, you love the high quality icons OS X provides. And you probab
 
 ![Screenshot](screenshot.png)
 
-Make sure to visit the [homepage](behoernchen.github.io/icnscomposer/index.html) for more information.
+Make sure to visit the [homepage](http://behoernchen.github.io/icnscomposer/index.html) for more information.
 
 
 ## How do I install it? ##
