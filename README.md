@@ -4,7 +4,11 @@ If you're like me, you love the high quality icons OS X provides. And you probab
 
 ![Screenshot](screenshot.png)
 
-Make sure to visit the [homepage](http://behoernchen.github.io/icnscomposer/index.html) for more information.
+Visit the [homepage](http://behoernchen.github.io/icnscomposer/index.html) for more information.
+
+
+#### Looking for a way to create Xcode image assets? ####
+You want to create Xcode image assets (*.xcassets)? Make sure to check out [Iconizer](http://behoernchen.github.io/iconizer/index.html)!
 
 
 ## How do I install it? ##
