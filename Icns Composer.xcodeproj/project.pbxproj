@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20FA7A651B14E9D900E7B8E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20FA7A641B14E9D900E7B8E7 /* Images.xcassets */; };
 		20FA7A831B14E9FE00E7B8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA7A7D1B14E9FE00E7B8E7 /* AppDelegate.swift */; };
 		20FA7A841B14E9FE00E7B8E7 /* DragDropImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA7A7E1B14E9FE00E7B8E7 /* DragDropImageView.swift */; };
 		20FA7A851B14E9FE00E7B8E7 /* Iconset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA7A7F1B14E9FE00E7B8E7 /* Iconset.swift */; };
@@ -15,12 +14,12 @@
 		20FA7A871B14E9FE00E7B8E7 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA7A811B14E9FE00E7B8E7 /* MainWindowController.swift */; };
 		20FA7A881B14E9FE00E7B8E7 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA7A821B14E9FE00E7B8E7 /* NSImageExtensions.swift */; };
 		20FA7A8B1B14EA2500E7B8E7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FA7A8A1B14EA2500E7B8E7 /* MainMenu.xib */; };
+		8E6084551B26ED3100BAD561 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E6084541B26ED3100BAD561 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		20FA7A5D1B14E9D900E7B8E7 /* Icns Composer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Icns Composer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FA7A611B14E9D900E7B8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		20FA7A641B14E9D900E7B8E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		20FA7A7D1B14E9FE00E7B8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20FA7A7E1B14E9FE00E7B8E7 /* DragDropImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropImageView.swift; sourceTree = "<group>"; };
 		20FA7A7F1B14E9FE00E7B8E7 /* Iconset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Iconset.swift; sourceTree = "<group>"; };
@@ -28,6 +27,7 @@
 		20FA7A811B14E9FE00E7B8E7 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		20FA7A821B14E9FE00E7B8E7 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
 		20FA7A8A1B14EA2500E7B8E7 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		8E6084541B26ED3100BAD561 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 		20FA7A601B14E9D900E7B8E7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				20FA7A641B14E9D900E7B8E7 /* Images.xcassets */,
+				8E6084541B26ED3100BAD561 /* Images.xcassets */,
 				20FA7A611B14E9D900E7B8E7 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -146,8 +146,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E6084551B26ED3100BAD561 /* Images.xcassets in Resources */,
 				20FA7A861B14E9FE00E7B8E7 /* MainWindow.xib in Resources */,
-				20FA7A651B14E9D900E7B8E7 /* Images.xcassets in Resources */,
 				20FA7A8B1B14EA2500E7B8E7 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
