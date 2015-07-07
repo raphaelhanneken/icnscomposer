@@ -4,7 +4,6 @@ If you're like me, you love the high quality icons OS X provides. And you probab
 
 ![Screenshot](screenshot.png)
 
-Visit the [homepage](http://behoernchen.github.io/icnscomposer/index.html) for more information.
 
 
 #### Looking for a way to create Xcode image assets? ####
