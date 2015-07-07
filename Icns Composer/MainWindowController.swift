@@ -91,43 +91,43 @@ class MainWindowController : NSWindowController, NSWindowDelegate {
             switch sender.tag {
                 case 1024:
                     // Resize image to the appropriate size...
-                    image1024.image = img.copyWithSize(width: 1024, height: 1024)
+                    image1024.image = img.copyWithWidth(1024, andHeight: 1024)
                     
                     // ...and add it to the icon object.
                     self.icon.addImage(self.image1024.image!, ofSize: "512x512@2x")
-                    self.icon.addImage(img.copyWithSize(width: 512, height: 512)!, ofSize: "512x512")
+                    self.icon.addImage(img.copyWithWidth(512, andHeight: 512)!, ofSize: "512x512")
                 
                 case 512:
                     // Resize image to the appropriate size...
-                    image512.image = img.copyWithSize(width: 512, height: 512)
+                    image512.image = img.copyWithWidth(512, andHeight: 512)
                     
                     // ...and add it to the icon object.
                     self.icon.addImage(self.image512.image!, ofSize: "256x256@2x")
-                    self.icon.addImage(img.copyWithSize(width: 256, height: 256)!, ofSize: "256x256")
+                    self.icon.addImage(img.copyWithWidth(256, andHeight: 256)!, ofSize: "256x256")
                     
                 case 256:
                     // Resize image to the appropriate size...
-                    image256.image = img.copyWithSize(width: 256, height: 256)
+                    image256.image = img.copyWithWidth(256, andHeight: 256)
                     
                     // ...and add it to the icon object.
                     self.icon.addImage(self.image256.image!, ofSize: "128x128@2x")
-                    self.icon.addImage(img.copyWithSize(width: 128, height: 128)!, ofSize: "128x128")
+                    self.icon.addImage(img.copyWithWidth(128, andHeight: 128)!, ofSize: "128x128")
                     
                 case 64:
                     // Resize image to the appropriate size...
-                    image128.image = img.copyWithSize(width: 64, height: 64)
+                    image128.image = img.copyWithWidth(64, andHeight: 64)
                     
                     // ...and add it to the icon object.
                     self.icon.addImage(self.image128.image!, ofSize: "32x32@2x")
-                    self.icon.addImage(img.copyWithSize(width: 32, height: 32)!, ofSize: "64x64")
+                    self.icon.addImage(img.copyWithWidth(32, andHeight: 32)!, ofSize: "64x64")
                     
                 case 32:
                     // Resize image to the appropriate size...
-                    image64.image = img.copyWithSize(width: 32, height: 32)
+                    image64.image = img.copyWithWidth(32, andHeight: 32)
                     
                     // ...and add it to the icon object.
                     self.icon.addImage(self.image64.image!, ofSize: "16x16@2x")
-                    self.icon.addImage(img.copyWithSize(width: 16, height: 16)!, ofSize: "16x16")
+                    self.icon.addImage(img.copyWithWidth(16, andHeight: 16)!, ofSize: "16x16")
                     
                 default:
                     // Nothing to do here. *flies away*
