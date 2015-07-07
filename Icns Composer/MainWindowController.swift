@@ -61,12 +61,11 @@ class MainWindowController : NSWindowController, NSWindowDelegate {
     
     // MARK: - Actions
     
-    /**
-     * Gets called everytime the user clicks 'Export'.
-     * Opens an NSSavePanel, to let the user choose, where to save the icns file.
-     *
-     * :param: sender An NSToolbarItem
-     */
+  
+    /// Gets called everytime the user clicks 'Export'.
+    /// Opens an NSSavePanel, to let the user choose, where to save the icns file.
+    ///
+    /// :param: sender An NSToolbarItem
     @IBAction func export(sender: NSToolbarItem) {
         // Create a new NSSavePanel instance...
         let dialog = NSSavePanel()
@@ -81,12 +80,11 @@ class MainWindowController : NSWindowController, NSWindowDelegate {
         }
     }
     
-    /**
-     * Gets called everytime a user dropps an image onto a connected NSImageView.
-     * Resizes the dropped images to the appropriate size and adds them to the icon object.
-     *
-     * :param: sender An NSImageView
-     */
+  
+    /// Gets called everytime a user dropps an image onto a connected NSImageView.
+    /// Resizes the dropped images to the appropriate size and adds them to the icon object.
+    ///
+    /// :param: sender An NSImageView
     @IBAction func resize(sender: NSImageView) {
         // Unwrap the given image object.
         if let img = sender.image {

@@ -30,13 +30,21 @@ import Cocoa
 
 extension NSImage {
     
-    /**
-     * Copies the current image and resizes it to the size of the given NSSize.
-     *
-     * :param: size Size of the image copy.
-     *
-     * :returns: The resized image copy.
-     */
+    /// Returns the height of the current image.
+    var height: CGFloat {
+        return self.size.height
+    }
+    
+    /// Returns the width of the current image.
+    var width: CGFloat {
+        return self.size.width
+    }
+    
+    ///  Copies the current image and resizes it to the size of the given NSSize.
+    ///
+    ///  :param: size The size of the image copy.
+    ///
+    ///  :returns: The resized image.
     func copyWithSize(size: NSSize) -> NSImage? {
         // Create a new rect with given width and height
         let frame    = NSMakeRect(0, 0, size.width, size.height)
@@ -54,26 +62,21 @@ extension NSImage {
         return newImage
     }
     
-    /**
-     * Creates an NSSize from the given width and height and calls copyWithSize(_: NSSize)
-     * with the created NSSize as argument.
-     *
-     * :param: w The width of the image copy.
-     * :param: h The height of the image copy.
-     *
-     * :returns: The resized image copy.
-     */
-    func copyWithSize(width w: CGFloat, height h: CGFloat) -> NSImage? {
-        // Call the designated copyWithSize(_:)
-        return self.copyWithSize(NSSize(width: w, height: h))
+    ///  Copies the current image and resizes it to the given width and height.
+    ///
+    ///  :param: width  The width of the image copy.
+    ///  :param: height The height of the image copy.
+    ///
+    ///  :returns: The resized image.
+    func copyWithWidth(width: CGFloat, andHeight height: CGFloat) -> NSImage? {
+        let size = NSSize(width: width, height: height)
+        return self.copyWithSize(size)
     }
     
-    /**
-     * Creates a PNGRepresentation of the current image.
-     *
-     * :returns: NSData object of the PNGRepresentation.
-     */
-    func PNGRepresentation() -> NSData {
+    ///  Builds a PNGRepresentation of the current image.
+    ///
+    ///  :returns: NSData object of the png representation.
+    func PNGRepresentation() -> NSData? {
         // Create an empty NSBitmapImageRep.
         var bitmap: NSBitmapImageRep
         
@@ -83,6 +86,6 @@ extension NSImage {
         self.unlockFocus()
         
         // Return NSPNGFileType representation of the bitmap object.
-        return bitmap.representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: [:])!
+        return bitmap.representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: [:])
     }
 }

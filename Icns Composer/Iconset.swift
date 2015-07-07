@@ -34,11 +34,18 @@ class Iconset {
     var images: [String : NSImage] = [:]
     
     
-    /**
-     * Saves an *.icns file with images from self.images
-     *
-     * :param: url Path to the directory, where to save the icns file.
-     */
+    
+    /// Adds an image to the images dictionary.
+    ///
+    /// :param: img  Image object to add to the array
+    /// :param: size Size of the given image, e.g. 512x512@2x
+    func addImage(img: NSImage, ofSize size: String) {
+        self.images[size] = img
+    }
+    
+    /// Saves an *.icns file with images from self.images
+    ///
+    /// :param: url Path to the directory, where to save the icns file.
     func saveIcnsToURL(url: NSURL?) {
         // Unwrap the given url.
         if let url = url {
@@ -53,23 +60,12 @@ class Iconset {
         }
     }
     
-    /**
-     * Adds an image to the images dictionary.
-     *
-     * :param: img  Image object to add to the array
-     * :param: size Size of the given image, e.g. 512x512@2x
-     */
-    func addImage(img: NSImage, ofSize size: String) {
-        self.images[size] = img
-    }
     
-    /**
-     * Saves the resized images as *.iconsest to the given URL.
-     *
-     * :param: url Path to the directory, where to save the iconset.
-     *
-     * :returns: True on success
-     */
+    /// Saves the resized images as *.iconset to the given URL.
+    /// 
+    /// :param: url Path to the directory, where to save the iconset.
+    /// 
+    /// :returns: True on success
     func writeIconsetToURL(url: NSURL) -> Bool {
         // Create the given directory, if not already existent.
         NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: nil)
@@ -89,11 +85,10 @@ class Iconset {
         return true
     }
     
-    /**
-     * Runs iconutil with the given url as input path.
-     *
-     * :param: url Path to a convertable iconset directory.
-     */
+    
+    /// Runs iconutil with the given url as input path.
+    /// 
+    /// :param: url Path to a convertable iconset directory.
     func runIconUtilWithInputURL(url: NSURL?) {
         // Unwrap the optional url.
         if let url = url {
