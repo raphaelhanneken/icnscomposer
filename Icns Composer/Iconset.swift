@@ -79,7 +79,9 @@ class Iconset {
             let url = url.URLByAppendingPathComponent("icon_\(size).png", isDirectory: false)
             
             // ...write the png file to the HD.
-            pngRep.writeToURL(url, atomically: true)
+            if let png = pngRep {
+                png.writeToURL(url, atomically: true)
+            }
         }
         
         return true
