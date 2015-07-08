@@ -49,6 +49,7 @@ class MainWindowController : NSWindowController, NSWindowDelegate {
     let icon = Iconset()
     
     
+    
     // override windowDidLoad() to hide the window title.
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -75,7 +76,7 @@ class MainWindowController : NSWindowController, NSWindowDelegate {
             // Did the user choose a directory?
             if result == NSFileHandlingPanelOKButton {
                 // Save the iconset to the HD.
-                self.icon.saveIcnsToURL(dialog.URL?.URLByAppendingPathExtension("iconset"))
+                self.icon.saveIcnsToURL(dialog.URL)
             }
         }
     }

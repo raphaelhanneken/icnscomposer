@@ -49,10 +49,13 @@ class Iconset {
     func saveIcnsToURL(url: NSURL?) {
         // Unwrap the given url.
         if let url = url {
+            // Get the temporary directory for the current user and append the choosen iconset name + .iconset
+            let tmpURL = NSURL(fileURLWithPath: NSTemporaryDirectory() + url.lastPathComponent! + ".iconset", isDirectory: true)
+            
             // Build the iconset.
-            if self.writeIconsetToURL(url) {
+            if self.writeIconsetToURL(tmpURL) {
                 // Create the *.icns file.
-                self.runIconUtilWithInputURL(url)
+                self.runIconUtilWithInput(tmpURL, andOutputURL: url)
             }
             
             // Open the working directory.
@@ -66,54 +69,54 @@ class Iconset {
     /// :param: url Path to the directory, where to save the iconset.
     /// 
     /// :returns: True on success
-    func writeIconsetToURL(url: NSURL) -> Bool {
-        // Create the given directory, if not already existent.
-        NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: nil)
-        
-        // For each image in the dictionary...
-        for (size, image) in self.images {
-            // ...get a png representation, ...
-            let pngRep = image.PNGRepresentation()
+    func writeIconsetToURL(url: NSURL?) -> Bool {
+        // Unwrap the given url.
+        if let url = url {
+            // Create the iconset directory, if not already existent.
+            NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: nil)
             
-            // ...append the appropriate file name to the given url and...
-            let url = url.URLByAppendingPathComponent("icon_\(size).png", isDirectory: false)
-            
-            // ...write the png file to the HD.
-            if let png = pngRep {
-                png.writeToURL(url, atomically: true)
+            // For each image in the dictionary...
+            for (size, image) in self.images {
+                // ...append the appropriate file name to the given url,...
+                let imgURL = url.URLByAppendingPathComponent("icon_\(size).png", isDirectory: false)
+                
+                // ...create a png representation and...
+                let pngRep = image.PNGRepresentation()
+                
+                // ...write the png file to the HD.
+                if let png = pngRep {
+                    png.writeToURL(imgURL, atomically: true)
+                }
             }
+            
+            return true
         }
         
-        return true
+        return false
     }
     
     
     /// Runs iconutil with the given url as input path.
     /// 
     /// :param: url Path to a convertable iconset directory.
-    func runIconUtilWithInputURL(url: NSURL?) {
+    /// :param: url Path to the location, where to save the generated icns file.
+    func runIconUtilWithInput(input: NSURL?, andOutputURL output: NSURL?) {
         // Unwrap the optional url.
-        if let url = url {
+        if let input = input, let output = output {
             // Create a new task.
             let iconUtil = NSTask()
             
-            // Get the last path component to use it as file name.
-            let filename  = url.lastPathComponent!
-            var outputURL = url.URLByDeletingLastPathComponent!
-            
-            // Remove the *.iconset extension...
-            let icnsFile = filename.substringToIndex(advance(filename.endIndex, -8))
-            // ...and append the new file to the new url object.
-            let outputPath = "\(outputURL.path!)/\(icnsFile).icns"
+            // Append the .icns file extension to the output path.
+            let outputPath = output.URLByAppendingPathExtension("icns")
             
             // Configure the NSTask and fire it up.
             iconUtil.launchPath = "/usr/bin/iconutil"
-            iconUtil.arguments = ["-c", "icns", "-o", outputPath, "\(url.path!)"]
+            iconUtil.arguments  = ["-c", "icns", "-o", outputPath, input.path!]
             iconUtil.launch()
             iconUtil.waitUntilExit()
             
             // Delete the .iconset
-            NSFileManager.defaultManager().removeItemAtURL(url, error: nil)
+            NSFileManager.defaultManager().removeItemAtURL(input, error: nil)
         }
     }
 }
