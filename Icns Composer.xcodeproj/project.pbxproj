@@ -16,7 +16,21 @@
 		20FA7A8B1B14EA2500E7B8E7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FA7A8A1B14EA2500E7B8E7 /* MainMenu.xib */; };
 		8E98C7AD1B4C56A10049AD45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E98C7AC1B4C56A10049AD45 /* Images.xcassets */; };
 		8EA095AB1B583B7600DA6A2E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA095AA1B583B7600DA6A2E /* Sparkle.framework */; };
+		8EA095AD1B583C1000DA6A2E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8EA095AA1B583B7600DA6A2E /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8EA095AC1B583BFC00DA6A2E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8EA095AD1B583C1000DA6A2E /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		20FA7A5D1B14E9D900E7B8E7 /* Icns Composer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Icns Composer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +125,7 @@
 				20FA7A591B14E9D900E7B8E7 /* Sources */,
 				20FA7A5A1B14E9D900E7B8E7 /* Frameworks */,
 				20FA7A5B1B14E9D900E7B8E7 /* Resources */,
+				8EA095AC1B583BFC00DA6A2E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -273,6 +288,7 @@
 				);
 				INFOPLIST_FILE = "Icns Composer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -288,6 +304,7 @@
 				);
 				INFOPLIST_FILE = "Icns Composer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
