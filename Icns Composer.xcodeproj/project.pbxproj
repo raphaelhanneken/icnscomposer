@@ -17,6 +17,7 @@
 		8E98C7AD1B4C56A10049AD45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E98C7AC1B4C56A10049AD45 /* Images.xcassets */; };
 		8EA095AB1B583B7600DA6A2E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA095AA1B583B7600DA6A2E /* Sparkle.framework */; };
 		8EA095AD1B583C1000DA6A2E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8EA095AA1B583B7600DA6A2E /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8EA095AF1B583DC500DA6A2E /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8EA095AE1B583DC500DA6A2E /* dsa_pub.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +45,7 @@
 		20FA7A8A1B14EA2500E7B8E7 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8E98C7AC1B4C56A10049AD45 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8EA095AA1B583B7600DA6A2E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		8EA095AE1B583DC500DA6A2E /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				8E98C7AC1B4C56A10049AD45 /* Images.xcassets */,
+				8EA095AE1B583DC500DA6A2E /* dsa_pub.pem */,
 				20FA7A611B14E9D900E7B8E7 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E98C7AD1B4C56A10049AD45 /* Images.xcassets in Resources */,
+				8EA095AF1B583DC500DA6A2E /* dsa_pub.pem in Resources */,
 				20FA7A861B14E9FE00E7B8E7 /* MainWindow.xib in Resources */,
 				20FA7A8B1B14EA2500E7B8E7 /* MainMenu.xib in Resources */,
 			);
