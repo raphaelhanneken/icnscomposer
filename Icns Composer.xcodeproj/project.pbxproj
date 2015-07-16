@@ -15,6 +15,7 @@
 		20FA7A881B14E9FE00E7B8E7 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA7A821B14E9FE00E7B8E7 /* NSImageExtensions.swift */; };
 		20FA7A8B1B14EA2500E7B8E7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FA7A8A1B14EA2500E7B8E7 /* MainMenu.xib */; };
 		8E98C7AD1B4C56A10049AD45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E98C7AC1B4C56A10049AD45 /* Images.xcassets */; };
+		8EA095AB1B583B7600DA6A2E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA095AA1B583B7600DA6A2E /* Sparkle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		20FA7A821B14E9FE00E7B8E7 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
 		20FA7A8A1B14EA2500E7B8E7 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8E98C7AC1B4C56A10049AD45 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8EA095AA1B583B7600DA6A2E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EA095AB1B583B7600DA6A2E /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				20FA7A5F1B14E9D900E7B8E7 /* Icns Composer */,
+				8EA095A91B583B4B00DA6A2E /* Frameworks */,
 				20FA7A5E1B14E9D900E7B8E7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +91,14 @@
 				20FA7A801B14E9FE00E7B8E7 /* MainWindow.xib */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		8EA095A91B583B4B00DA6A2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EA095AA1B583B7600DA6A2E /* Sparkle.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +267,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Icns Composer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -266,6 +282,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Icns Composer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
