@@ -92,8 +92,8 @@
 		20FA7A601B14E9D900E7B8E7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				20FA7A611B14E9D900E7B8E7 /* Info.plist */,
 				8E98C7AC1B4C56A10049AD45 /* Images.xcassets */,
+				20FA7A611B14E9D900E7B8E7 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
