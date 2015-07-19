@@ -46,10 +46,10 @@ class Iconset {
     /// - parameter img:  Image object to add to the array
     /// - parameter size: Size of the given image, e.g. 512x512@2x
     func addImage(img: NSImage, ofSize size: String) {
-        self.images[size] = img
+        images[size] = img
     }
     
-    /// Saves an *.icns file with images from self.images
+    /// Saves an *.icns file with images from images
     ///
     /// - parameter url: Path to the directory, where to save the icns file.
     func saveIcnsToURL(url: NSURL?) throws {
@@ -62,10 +62,10 @@ class Iconset {
         let tmpURL = NSURL(fileURLWithPath: NSTemporaryDirectory() + url.lastPathComponent! + ".iconset", isDirectory: true)
         
         // Build the iconset.
-        try self.writeIconsetToURL(tmpURL)
+        try writeIconsetToURL(tmpURL)
         
         // Create the *.icns file.
-        try self.runIconUtilWithInput(tmpURL, andOutputURL: url)
+        try runIconUtilWithInput(tmpURL, andOutputURL: url)
         
         // Open the working directory.
         NSWorkspace.sharedWorkspace().openURL(url.URLByDeletingLastPathComponent!)
@@ -87,7 +87,7 @@ class Iconset {
         try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
         
         // For each image in the dictionary...
-        for (size, image) in self.images {
+        for (size, image) in images {
             // ...append the appropriate file name to the given url,...
             let imgURL = url.URLByAppendingPathComponent("icon_\(size).png", isDirectory: false)
             
