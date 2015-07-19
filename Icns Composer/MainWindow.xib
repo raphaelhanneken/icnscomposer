@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8152.3" systemVersion="15A215h" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8152.3"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Icon_Composer" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Icns_Composer" customModuleProvider="target">
             <connections>
                 <outlet property="image1024" destination="l26-H8-fwE" id="8ij-ci-R4G"/>
                 <outlet property="image128" destination="W8q-qi-jjA" id="lwj-xb-qLm"/>
@@ -27,21 +27,23 @@
                 <rect key="frame" x="0.0" y="5" width="804" height="556"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="1024" translatesAutoresizingMaskIntoConstraints="NO" id="l26-H8-fwE" userLabel="1024" customClass="DragDropImageView" customModule="Icon_Composer" customModuleProvider="target">
+                    <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="1024" translatesAutoresizingMaskIntoConstraints="NO" id="l26-H8-fwE" userLabel="1024" customClass="DragDropImageView" customModule="Icns_Composer" customModuleProvider="target">
                         <rect key="frame" x="17" y="17" width="506" height="506"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="l26-H8-fwE" secondAttribute="height" multiplier="1:1" id="bS1-nC-z0S"/>
                         </constraints>
+                        <animations/>
                         <imageCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="jdi-Fu-x3G"/>
                         <connections>
                             <action selector="resize:" target="-2" id="vLM-8t-4Of"/>
                         </connections>
                     </imageView>
-                    <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="512" translatesAutoresizingMaskIntoConstraints="NO" id="g0d-X9-TBH" userLabel="512" customClass="DragDropImageView" customModule="Icon_Composer" customModuleProvider="target">
+                    <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="512" translatesAutoresizingMaskIntoConstraints="NO" id="g0d-X9-TBH" userLabel="512" customClass="DragDropImageView" customModule="Icns_Composer" customModuleProvider="target">
                         <rect key="frame" x="531" y="267" width="256" height="256"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="g0d-X9-TBH" secondAttribute="height" multiplier="1:1" id="Crb-ID-RCS"/>
                         </constraints>
+                        <animations/>
                         <imageCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="GC7-9B-VeJ"/>
                         <connections>
                             <action selector="resize:" target="-2" id="Vdi-w1-07W"/>
@@ -49,6 +51,7 @@
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qiw-i1-QCD">
                         <rect key="frame" x="23" y="525" width="46" height="14"/>
+                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="512@2x" id="OY2-Dj-m4i">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -57,37 +60,41 @@
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ge0-qR-TNh">
                         <rect key="frame" x="537" y="525" width="49" height="14"/>
+                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="256@2x" id="rYk-Ai-qIt">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="256" translatesAutoresizingMaskIntoConstraints="NO" id="bXl-bF-kOr" userLabel="256" customClass="DragDropImageView" customModule="Icon_Composer" customModuleProvider="target">
+                    <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="256" translatesAutoresizingMaskIntoConstraints="NO" id="bXl-bF-kOr" userLabel="256" customClass="DragDropImageView" customModule="Icns_Composer" customModuleProvider="target">
                         <rect key="frame" x="531" y="120" width="128" height="128"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="bXl-bF-kOr" secondAttribute="height" multiplier="1:1" id="0oe-fY-O39"/>
                         </constraints>
+                        <animations/>
                         <imageCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="7gB-VG-mV9"/>
                         <connections>
                             <action selector="resize:" target="-2" id="nmv-yV-bhr"/>
                         </connections>
                     </imageView>
-                    <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="64" translatesAutoresizingMaskIntoConstraints="NO" id="W8q-qi-jjA" userLabel="64" customClass="DragDropImageView" customModule="Icon_Composer" customModuleProvider="target">
+                    <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="64" translatesAutoresizingMaskIntoConstraints="NO" id="W8q-qi-jjA" userLabel="64" customClass="DragDropImageView" customModule="Icns_Composer" customModuleProvider="target">
                         <rect key="frame" x="661" y="184" width="64" height="64"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="W8q-qi-jjA" secondAttribute="height" multiplier="1:1" id="7FY-xJ-QuT"/>
                         </constraints>
+                        <animations/>
                         <imageCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="55z-HV-xBx"/>
                         <connections>
                             <action selector="resize:" target="-2" id="xZH-TQ-OYB"/>
                         </connections>
                     </imageView>
-                    <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="32" translatesAutoresizingMaskIntoConstraints="NO" id="gH9-Ez-2dr" userLabel="32" customClass="DragDropImageView" customModule="Icon_Composer" customModuleProvider="target">
+                    <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="32" translatesAutoresizingMaskIntoConstraints="NO" id="gH9-Ez-2dr" userLabel="32" customClass="DragDropImageView" customModule="Icns_Composer" customModuleProvider="target">
                         <rect key="frame" x="661" y="150" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="gH9-Ez-2dr" secondAttribute="height" multiplier="1:1" id="FMV-ay-LLd"/>
                         </constraints>
+                        <animations/>
                         <imageCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="nOB-ft-nCb"/>
                         <connections>
                             <action selector="resize:" target="-2" id="1ER-nk-w7n"/>
@@ -95,6 +102,7 @@
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KKc-XZ-wbE">
                         <rect key="frame" x="537" y="248" width="49" height="14"/>
+                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="128@2x" id="hk0-M2-Bmx">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -106,6 +114,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="11" id="3my-xL-As7"/>
                         </constraints>
+                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="32@2x" id="7T9-oW-FzX">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -114,6 +123,7 @@
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="act-2C-exe">
                         <rect key="frame" x="694" y="158" width="39" height="14"/>
+                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="16@2x" id="ajx-mj-Iv1">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -158,6 +168,7 @@
                     <constraint firstItem="act-2C-exe" firstAttribute="leading" secondItem="gH9-Ez-2dr" secondAttribute="trailing" constant="6" id="z2Q-j9-N6k"/>
                     <constraint firstItem="g0d-X9-TBH" firstAttribute="top" secondItem="Ge0-qR-TNh" secondAttribute="bottom" constant="5" id="zzh-Bd-dtZ"/>
                 </constraints>
+                <animations/>
             </view>
             <toolbar key="toolbar" implicitIdentifier="761DCFCF-521A-4C16-91AA-AA118AF96D49" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="Xjh-0J-sdw">
                 <allowedToolbarItems>
@@ -170,6 +181,7 @@
                         <button key="view" verticalHuggingPriority="750" id="tCx-6n-QbZ">
                             <rect key="frame" x="0.0" y="14" width="44" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <animations/>
                             <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="NSShareTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jJr-ef-tEl">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
