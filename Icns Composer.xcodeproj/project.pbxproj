@@ -12,10 +12,10 @@
 		20FA7A851B14E9FE00E7B8E7 /* Iconset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA7A7F1B14E9FE00E7B8E7 /* Iconset.swift */; };
 		20FA7A861B14E9FE00E7B8E7 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FA7A801B14E9FE00E7B8E7 /* MainWindow.xib */; };
 		20FA7A871B14E9FE00E7B8E7 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA7A811B14E9FE00E7B8E7 /* MainWindowController.swift */; };
-		20FA7A881B14E9FE00E7B8E7 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA7A821B14E9FE00E7B8E7 /* NSImageExtensions.swift */; };
 		20FA7A8B1B14EA2500E7B8E7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FA7A8A1B14EA2500E7B8E7 /* MainMenu.xib */; };
 		8E72A1011B583FBC00F6BCFB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E72A1001B583FBC00F6BCFB /* Sparkle.framework */; };
 		8E72A1041B5843BE00F6BCFB /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E72A1001B583FBC00F6BCFB /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8E7A659C1B5BB935003FC529 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A659B1B5BB935003FC529 /* NSImageExtensions.swift */; };
 		8E98C7AD1B4C56A10049AD45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E98C7AC1B4C56A10049AD45 /* Images.xcassets */; };
 		8EA095AF1B583DC500DA6A2E /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8EA095AE1B583DC500DA6A2E /* dsa_pub.pem */; };
 /* End PBXBuildFile section */
@@ -41,9 +41,9 @@
 		20FA7A7F1B14E9FE00E7B8E7 /* Iconset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Iconset.swift; sourceTree = "<group>"; };
 		20FA7A801B14E9FE00E7B8E7 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		20FA7A811B14E9FE00E7B8E7 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
-		20FA7A821B14E9FE00E7B8E7 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
 		20FA7A8A1B14EA2500E7B8E7 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8E72A1001B583FBC00F6BCFB /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "Icns Composer/Sparkle.framework"; sourceTree = "<group>"; };
+		8E7A659B1B5BB935003FC529 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
 		8E98C7AC1B4C56A10049AD45 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8EA095AE1B583DC500DA6A2E /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +84,7 @@
 				20FA7A811B14E9FE00E7B8E7 /* MainWindowController.swift */,
 				20FA7A7F1B14E9FE00E7B8E7 /* Iconset.swift */,
 				20FA7A7E1B14E9FE00E7B8E7 /* DragDropImageView.swift */,
-				20FA7A821B14E9FE00E7B8E7 /* NSImageExtensions.swift */,
+				8E7A659B1B5BB935003FC529 /* NSImageExtensions.swift */,
 				20FA7A891B14EA0400E7B8E7 /* UI */,
 				20FA7A601B14E9D900E7B8E7 /* Supporting Files */,
 			);
@@ -145,6 +145,8 @@
 		20FA7A551B14E9D900E7B8E7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Raphael Hanneken";
 				TargetAttributes = {
@@ -191,7 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20FA7A851B14E9FE00E7B8E7 /* Iconset.swift in Sources */,
-				20FA7A881B14E9FE00E7B8E7 /* NSImageExtensions.swift in Sources */,
+				8E7A659C1B5BB935003FC529 /* NSImageExtensions.swift in Sources */,
 				20FA7A831B14E9FE00E7B8E7 /* AppDelegate.swift in Sources */,
 				20FA7A871B14E9FE00E7B8E7 /* MainWindowController.swift in Sources */,
 				20FA7A841B14E9FE00E7B8E7 /* DragDropImageView.swift in Sources */,

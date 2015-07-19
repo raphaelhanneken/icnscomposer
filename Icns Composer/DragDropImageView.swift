@@ -60,7 +60,7 @@ class DragDropImageView: NSImageView, NSDraggingSource {
     // Since we only want to copy/delete the current image we register ourselfes 
     // for .Copy and .Delete operations.
     func draggingSession(session: NSDraggingSession, sourceOperationMaskForDraggingContext context: NSDraggingContext) -> NSDragOperation {
-        return .Copy | .Delete
+        return NSDragOperation.Copy.union(.Delete)
     }
     
     // Clear the ImageView on delete operation; e.g. the image gets
