@@ -66,17 +66,32 @@ class MainWindowController : NSWindowController, NSWindowDelegate {
     /// Gets called everytime the user clicks 'Export'.
     /// Opens an NSSavePanel, to let the user choose, where to save the icns file.
     ///
-    /// :param: sender An NSToolbarItem
+    /// - parameter sender: An NSToolbarItem
     @IBAction func export(sender: NSToolbarItem) {
         // Create a new NSSavePanel instance...
         let dialog = NSSavePanel()
         
         // ...and open it on top of the main window.
-        dialog.beginSheetModalForWindow(self.window!) { (result: Int) -> Void in
+        dialog.beginSheetModalForWindow(window!) { (result: Int) -> Void in
             // Did the user choose a directory?
             if result == NSFileHandlingPanelOKButton {
                 // Save the iconset to the HD.
-                self.icon.saveIcnsToURL(dialog.URL)
+                do {
+                    try self.icon.saveIcnsToURL(dialog.URL)
+                } catch {
+                    guard let window = self.window else {
+                        return
+                    }
+                    // Create an alert for the user.
+                    let alert = NSAlert()
+                    
+                    alert.messageText = "This should not have happened!"
+                    alert.informativeText = "The icns file could not be saved due to a critical error."
+                    alert.beginSheetModalForWindow(window, completionHandler: nil)
+                    
+                    // Print the error on the console
+                    print(error)
+                }
             }
         }
     }
@@ -85,55 +100,61 @@ class MainWindowController : NSWindowController, NSWindowDelegate {
     /// Gets called everytime a user dropps an image onto a connected NSImageView.
     /// Resizes the dropped images to the appropriate size and adds them to the icon object.
     ///
-    /// :param: sender An NSImageView
+    /// - parameter sender: An NSImageView
     @IBAction func resize(sender: NSImageView) {
         // Unwrap the given image object.
-        if let img = sender.image {
-            switch sender.tag {
-                case 1024:
-                    // Resize image to the appropriate size...
-                    image1024.image = img.copyWithWidth(1024, andHeight: 1024)
-                    
-                    // ...and add it to the icon object.
-                    self.icon.addImage(self.image1024.image!, ofSize: "512x512@2x")
-                    self.icon.addImage(img.copyWithWidth(512, andHeight: 512)!, ofSize: "512x512")
+        guard let img = sender.image else {
+            return
+        }
+        
+        let tag = sender.tag
+        let x1  = NSSize(width: tag / 2, height: tag / 2)
+        let x2  = NSSize(width: tag, height: tag)
+        
+        switch tag {
+            case 1024:
+                // Resize image to the appropriate size...
+                image1024.image = img.copyWithSize(x2)
                 
-                case 512:
-                    // Resize image to the appropriate size...
-                    image512.image = img.copyWithWidth(512, andHeight: 512)
-                    
-                    // ...and add it to the icon object.
-                    self.icon.addImage(self.image512.image!, ofSize: "256x256@2x")
-                    self.icon.addImage(img.copyWithWidth(256, andHeight: 256)!, ofSize: "256x256")
-                    
-                case 256:
-                    // Resize image to the appropriate size...
-                    image256.image = img.copyWithWidth(256, andHeight: 256)
-                    
-                    // ...and add it to the icon object.
-                    self.icon.addImage(self.image256.image!, ofSize: "128x128@2x")
-                    self.icon.addImage(img.copyWithWidth(128, andHeight: 128)!, ofSize: "128x128")
-                    
-                case 64:
-                    // Resize image to the appropriate size...
-                    image128.image = img.copyWithWidth(64, andHeight: 64)
-                    
-                    // ...and add it to the icon object.
-                    self.icon.addImage(self.image128.image!, ofSize: "32x32@2x")
-                    self.icon.addImage(img.copyWithWidth(32, andHeight: 32)!, ofSize: "64x64")
-                    
-                case 32:
-                    // Resize image to the appropriate size...
-                    image64.image = img.copyWithWidth(32, andHeight: 32)
-                    
-                    // ...and add it to the icon object.
-                    self.icon.addImage(self.image64.image!, ofSize: "16x16@2x")
-                    self.icon.addImage(img.copyWithWidth(16, andHeight: 16)!, ofSize: "16x16")
-                    
-                default:
-                    // Nothing to do here. *flies away*
-                    return
-            }
+                // ...and add it to the icon object.
+                icon.addImage(image1024.image!, ofSize: "512x512@2x")
+                icon.addImage(img.copyWithSize(x1)!, ofSize: "512x512")
+            
+            case 512:
+                // Resize image to the appropriate size...
+                image512.image = img.copyWithSize(x2)
+                
+                // ...and add it to the icon object.
+                icon.addImage(image512.image!, ofSize: "256x256@2x")
+                icon.addImage(img.copyWithSize(x1)!, ofSize: "256x256")
+                
+            case 256:
+                // Resize image to the appropriate size...
+                image256.image = img.copyWithSize(x2)
+                
+                // ...and add it to the icon object.
+                icon.addImage(image256.image!, ofSize: "128x128@2x")
+                icon.addImage(img.copyWithSize(x1)!, ofSize: "128x128")
+                
+            case 64:
+                // Resize image to the appropriate size...
+                image128.image = img.copyWithSize(x2)
+                
+                // ...and add it to the icon object.
+                icon.addImage(image128.image!, ofSize: "32x32@2x")
+                icon.addImage(img.copyWithSize(x1)!, ofSize: "32x32")
+                
+            case 32:
+                // Resize image to the appropriate size...
+                image64.image = img.copyWithSize(x2)
+                
+                // ...and add it to the icon object.
+                icon.addImage(image64.image!, ofSize: "16x16@2x")
+                icon.addImage(img.copyWithSize(x1)!, ofSize: "16x16")
+                
+            default:
+                // Nothing to do here. *flies away*
+                return
         }
     }
 }
