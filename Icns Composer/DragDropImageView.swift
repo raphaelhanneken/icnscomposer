@@ -101,7 +101,7 @@ class DragDropImageView: NSImageView, NSDraggingSource {
             let draggingFrameOrigin = convertPoint(mouseDown, fromView: nil)
             // Build the dragging frame and offset it by half the image size on each axis
             // to center the mouse cursor within the dragging frame.
-            let draggingFrame       = NSRect(origin: draggingFrameOrigin, size: img.size).rectByOffsetting(dx: -img.size.width / 2, dy: -img.size.height / 2)
+            let draggingFrame       = NSRect(origin: draggingFrameOrigin, size: img.size).offsetBy(dx: -img.size.width / 2, dy: -img.size.height / 2)
             
             // Assign the dragging frame to the draggingFrame property of our dragging item.
             draggingItem.draggingFrame = draggingFrame
