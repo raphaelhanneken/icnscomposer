@@ -1,7 +1,7 @@
 //
 // AppDelegate.swift
 // Icns Composer
-// https://github.com/behoernchen/IcnsComposer
+// https://github.com/raphaelhanneken/icnscomposer
 //
 // The MIT License (MIT)
 //
