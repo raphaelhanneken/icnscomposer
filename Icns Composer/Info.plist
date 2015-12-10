@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>49</string>
+	<string>50</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
@@ -30,13 +30,6 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>raphaelhanneken.github.io</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
 			<key>github-cloud.s3.amazonaws.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
@@ -45,6 +38,13 @@
 				<true/>
 			</dict>
 			<key>github.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+			<key>raphaelhanneken.github.io</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
@@ -60,7 +60,7 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://raphaelhanneken.github.io/icnscomposer/sparkle/IcnsComposerAppcast.xml</string>
+	<string>https://raphaelhanneken.github.io/icnscomposer/sparkle/appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 </dict>
