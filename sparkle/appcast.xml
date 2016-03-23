@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
         <title>Icns Composer Changelog</title>
-        <link>http://behoernchen.github.io/icnscomposer/sparkle/IcnsComposerAppcast.xml</link>
+        <link>http://raphaelhanneken.github.io/icnscomposer/sparkle/appcast.xml</link>
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
 
