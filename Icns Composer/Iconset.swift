@@ -29,8 +29,8 @@
 import Cocoa
 
 
-enum IconsetError: ErrorType {
-  case MissingURL
+enum IconsetError: ErrorProtocol {
+  case missingURL
 }
 
 
@@ -44,7 +44,7 @@ class Iconset {
   ///
   /// - parameter img:  Image object to add to the array
   /// - parameter size: Size of the given image, e.g. 512x512@2x
-  func addImage(img: NSImage, ofSize size: String) {
+  func addImage(_ img: NSImage, ofSize size: String) {
     images[size] = img
   }
 
@@ -52,15 +52,15 @@ class Iconset {
   ///
   ///  - parameter url: URL to save the icns file to.
   ///  - throws: A MissingURL error, when the supplied url cant be unwrapped.
-  func saveIcnsToURL(url: NSURL?) throws {
+  func saveIcnsToURL(_ url: URL?) throws {
     // Unwrap the given url.
     guard let url = url else {
-      throw IconsetError.MissingURL
+      throw IconsetError.missingURL
     }
 
     // Get the temporary directory for the current user and
     // append the choosen iconset name + .iconset
-    let tmpURL = NSURL(fileURLWithPath:
+    let tmpURL = URL(fileURLWithPath:
       NSTemporaryDirectory() + url.lastPathComponent! + ".iconset", isDirectory: true)
 
     // Build the iconset.
@@ -70,7 +70,7 @@ class Iconset {
     try runIconUtilWithInput(tmpURL, andOutputURL: url)
 
     // Open the working directory.
-    NSWorkspace.sharedWorkspace().openURL(url.URLByDeletingLastPathComponent!)
+    NSWorkspace.shared().open(try! url.deletingLastPathComponent())
   }
 
 
@@ -78,21 +78,21 @@ class Iconset {
   ///
   ///  - parameter url: Path the location where to save the iconset.
   ///  - throws: A MissingURL error, in case the supplied url cant be unwrapped.
-  func writeIconsetToURL(url: NSURL?) throws {
+  func writeIconsetToURL(_ url: URL?) throws {
     // Unwrap the given url.
     guard let url = url else {
-      throw IconsetError.MissingURL
+      throw IconsetError.missingURL
     }
 
     // Create the iconset directory, if not already existent.
-    try NSFileManager.defaultManager().createDirectoryAtURL(url,
+    try FileManager.default.createDirectory(at: url,
                                                             withIntermediateDirectories: true,
                                                             attributes: nil)
 
     // For each image in the dictionary...
     for (size, image) in images {
       // ...append the appropriate file name to the given url,...
-      let imgURL = url.URLByAppendingPathComponent("icon_\(size).png", isDirectory: false)
+      let imgURL = try! url.appendingPathComponent("icon_\(size).png", isDirectory: false)
 
       // ...create a png representation and...
       guard let png = image.PNGRepresentation() else {
@@ -100,7 +100,7 @@ class Iconset {
       }
 
       // ...write the png file to the HD.
-      try png.writeToURL(imgURL, options: .DataWritingAtomic)
+      try png.write(to: imgURL, options: .atomic)
     }
   }
 
@@ -111,17 +111,17 @@ class Iconset {
   ///  - parameter output: Path to the location, where to save the generated icns file.
   ///
   ///  - throws: Throws a MissingURL error, in case one of the supplied urls cant be unwrapped.
-  func runIconUtilWithInput(input: NSURL?, andOutputURL output: NSURL?) throws {
+  func runIconUtilWithInput(_ input: URL?, andOutputURL output: URL?) throws {
     // Unwrap the optional url.
     guard let input = input, output = output else {
-      throw IconsetError.MissingURL
+      throw IconsetError.missingURL
     }
 
     // Create a new task.
-    let iconUtil = NSTask()
+    let iconUtil = Task()
 
     // Append the .icns file extension to the output path.
-    let outputURL = output.URLByAppendingPathExtension("icns")
+    let outputURL = try! output.appendingPathExtension("icns")
 
     // Configure the NSTask and fire it up.
     iconUtil.launchPath = "/usr/bin/iconutil"
@@ -130,6 +130,6 @@ class Iconset {
     iconUtil.waitUntilExit()
 
     // Delete the .iconset
-    try NSFileManager.defaultManager().removeItemAtURL(input)
+    try FileManager.default.removeItem(at: input)
   }
 }

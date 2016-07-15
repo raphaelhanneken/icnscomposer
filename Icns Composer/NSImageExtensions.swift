@@ -45,12 +45,12 @@ extension NSImage {
   ///  - parameter size: The size of the new image.
   ///
   ///  - returns: The resized copy of the given image.
-  func copyWithSize(size: NSSize) -> NSImage? {
+  func copyWithSize(_ size: NSSize) -> NSImage? {
     // Create a new rect with given width and height
     let frame = NSMakeRect(0, 0, size.width, size.height)
 
     // Get the best representation for the given size.
-    guard let rep = self.bestRepresentationForRect(frame, context: nil, hints: nil) else {
+    guard let rep = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
       return nil
     }
 
@@ -62,7 +62,7 @@ extension NSImage {
     defer { img.unlockFocus() }
 
     // Draw the new image
-    if rep.drawInRect(frame) {
+    if rep.draw(in: frame) {
       return img
     }
 
@@ -76,7 +76,7 @@ extension NSImage {
   ///  - parameter size: The size of the new image.
   ///
   ///  - returns: The resized copy of the given image.
-  func resizeWhileMaintainingAspectRatioToSize(size: NSSize) -> NSImage? {
+  func resizeWhileMaintainingAspectRatioToSize(_ size: NSSize) -> NSImage? {
     let newSize: NSSize
 
     let widthRatio  = size.width / self.width
@@ -98,7 +98,7 @@ extension NSImage {
   ///  - parameter size: The size of the new image.
   ///
   ///  - returns: The cropped copy of the given image.
-  func cropToSize(size: NSSize) -> NSImage? {
+  func cropToSize(_ size: NSSize) -> NSImage? {
     // Resize the current image, while preserving the aspect ratio.
     guard let resized = self.resizeWhileMaintainingAspectRatioToSize(size) else {
       return nil
@@ -111,7 +111,7 @@ extension NSImage {
     let frame = NSMakeRect(x, y, size.width, size.height)
 
     // Get the best representation of the image for the given cropping frame.
-    guard let rep = resized.bestRepresentationForRect(frame, context: nil, hints: nil) else {
+    guard let rep = resized.bestRepresentation(for: frame, context: nil, hints: nil) else {
       return nil
     }
 
@@ -121,9 +121,9 @@ extension NSImage {
     img.lockFocus()
     defer { img.unlockFocus() }
 
-    if rep.drawInRect(NSMakeRect(0, 0, size.width, size.height),
-                      fromRect: frame,
-                      operation: NSCompositingOperation.CompositeCopy,
+    if rep.draw(in: NSMakeRect(0, 0, size.width, size.height),
+                      from: frame,
+                      operation: NSCompositingOperation.copy,
                       fraction: 1.0,
                       respectFlipped: false,
                       hints: [:]) {
@@ -138,7 +138,7 @@ extension NSImage {
   ///  Creates a PNGRepresentation of the current image.
   ///
   ///  - returns: The PNG representation of the current image.
-  func PNGRepresentation() -> NSData? {
+  func PNGRepresentation() -> Data? {
     // Lock drawing focus on self and make sure the focus gets unlocked before returning.
     self.lockFocus()
     defer { self.unlockFocus() }
@@ -150,6 +150,6 @@ extension NSImage {
     }
 
     // Return NSPNGFileType representation of the bitmap object.
-    return rep.representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: [:])
+    return rep.representation(using: NSBitmapImageFileType.PNG, properties: [:])
   }
 }

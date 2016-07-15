@@ -54,7 +54,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
   override func windowDidLoad() {
     super.windowDidLoad()
     // To display the unified toolbar, hide the window title.
-    window!.titleVisibility = .Hidden
+    window!.titleVisibility = .hidden
   }
 
 
@@ -66,17 +66,17 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
   /// Opens an NSSavePanel, to let the user choose, where to save the icns file.
   ///
   /// - parameter sender: An NSToolbarItem
-  @IBAction func export(sender: NSToolbarItem) {
+  @IBAction func export(_ sender: NSToolbarItem) {
     // Create a new NSSavePanel instance...
     let dialog = NSSavePanel()
 
     // ...and open it on top of the main window.
-    dialog.beginSheetModalForWindow(window!) { (result: Int) -> Void in
+    dialog.beginSheetModal(for: window!) { (result: Int) -> Void in
       // Did the user choose a directory?
       if result == NSFileHandlingPanelOKButton {
         // Save the iconset to the HD.
         do {
-          try self.icon.saveIcnsToURL(dialog.URL)
+          try self.icon.saveIcnsToURL(dialog.url)
         } catch {
           guard let window = self.window else {
             return
@@ -86,7 +86,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
 
           alert.messageText = "This should not have happened!"
           alert.informativeText = "The icns file could not be saved due to a critical error."
-          alert.beginSheetModalForWindow(window, completionHandler: nil)
+          alert.beginSheetModal(for: window, completionHandler: nil)
 
           // Print the error on the console
           print(error)
@@ -100,7 +100,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
   /// Resizes the dropped images to the appropriate size and adds them to the icon object.
   ///
   /// - parameter sender: An NSImageView
-  @IBAction func resize(sender: NSImageView) {
+  @IBAction func resize(_ sender: NSImageView) {
     // Unwrap the given image object.
     guard let img = sender.image else {
       return
