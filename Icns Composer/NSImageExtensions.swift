@@ -34,7 +34,6 @@ extension NSImage {
   var height: CGFloat {
     return self.size.height
   }
-
   /// Returns the width of the current image.
   var width: CGFloat {
     return self.size.width
@@ -43,23 +42,19 @@ extension NSImage {
   ///  Copies the current image and resizes it to the given size.
   ///
   ///  - parameter size: The size of the new image.
-  ///
-  ///  - returns: The resized copy of the given image.
+  ///  - returns:        The resized copy of the given image.
   func copyWithSize(_ size: NSSize) -> NSImage? {
     // Create a new rect with given width and height
     let frame = NSMakeRect(0, 0, size.width, size.height)
-
     // Get the best representation for the given size.
     guard let rep = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
       return nil
     }
-
     // Create an empty image with the given size.
     let img = NSImage(size: size)
-
     // Set the drawing context and make sure to remove the focus before returning.
-    img.lockFocus()
     defer { img.unlockFocus() }
+    img.lockFocus()
 
     // Draw the new image
     if rep.draw(in: frame) {
@@ -122,11 +117,11 @@ extension NSImage {
     defer { img.unlockFocus() }
 
     if rep.draw(in: NSMakeRect(0, 0, size.width, size.height),
-                      from: frame,
-                      operation: NSCompositingOperation.copy,
-                      fraction: 1.0,
-                      respectFlipped: false,
-                      hints: [:]) {
+                from: frame,
+                operation: NSCompositingOperation.copy,
+                fraction: 1.0,
+                respectFlipped: false,
+                hints: [:]) {
       // Return the cropped image.
       return img
     }

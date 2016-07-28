@@ -34,14 +34,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   /// Handle the window via MainWindowController.
   var mainWindowController: MainWindowController?
 
-
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     // Create a new WindowController instance.
     let mainWindowController = MainWindowController()
-
     // Display the associated window on screen.
     mainWindowController.showWindow(self)
-
     // Point the instance variable to the WindowController object.
     self.mainWindowController = mainWindowController
   }

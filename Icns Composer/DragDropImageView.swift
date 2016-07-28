@@ -34,7 +34,6 @@ class DragDropImageView: NSImageView, NSDraggingSource {
   var mouseDownEvent: NSEvent?
 
 
-
   override init(frame frameRect: NSRect) {
     super.init(frame: frameRect)
 
@@ -54,13 +53,12 @@ class DragDropImageView: NSImageView, NSDraggingSource {
   }
 
 
-
   // MARK: - NSDraggingSource
 
   // Since we only want to copy/delete the current image we register ourselfes
   // for .Copy and .Delete operations.
-  func draggingSession(_ session: NSDraggingSession, sourceOperationMaskFor
-    context: NSDraggingContext) -> NSDragOperation {
+  func draggingSession(_ session: NSDraggingSession,
+                       sourceOperationMaskFor context: NSDraggingContext) -> NSDragOperation {
     return NSDragOperation.copy.union(.delete)
   }
 
