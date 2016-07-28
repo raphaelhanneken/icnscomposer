@@ -41,9 +41,9 @@ enum ImageScale: String {
 struct IconImage {
   /// Holds the image it represents.
   let image: NSImage?
-  /// The image scale
+  /// The image scale.
   let scale: ImageScale
-  /// The image size as String, e.g. 512x512
+  /// The images size.
   let size: NSSize
 
   var filename: String {
