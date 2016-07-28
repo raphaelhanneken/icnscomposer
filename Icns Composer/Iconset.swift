@@ -34,76 +34,51 @@ enum IconsetError: ErrorProtocol {
 }
 
 
-class Iconset {
+/// Handles the iconset creationg.
+struct Iconset {
 
   /// Holds the necessary images to create an iconset that conforms iconutil
-  var images: [String : NSImage] = [:]
+  var images = Array<IconImage>()
 
-
-  /// Adds an image to the images dictionary.
+  /// Add a new IconImage to the iconset.
   ///
-  /// - parameter img:  Image object to add to the array
-  /// - parameter size: Size of the given image, e.g. 512x512@2x
-  func addImage(_ img: NSImage, ofSize size: String) {
-    images[size] = img
+  /// - parameter image: The IconImage to add.
+  mutating func add(_ image: IconImage) {
+    images.append(image)
   }
 
   ///  Saves an icns file to the supplied url.
   ///
   ///  - parameter url: URL to save the icns file to.
   ///  - throws: A MissingURL error, when the supplied url cant be unwrapped.
-  func saveIcnsToURL(_ url: URL?) throws {
-    // Unwrap the given url.
+  func writeToURL(_ url: URL?) throws {
     guard let url = url else {
       throw IconsetError.missingURL
     }
-
-    // Get the temporary directory for the current user and
-    // append the choosen iconset name + .iconset
-    let tmpURL = URL(fileURLWithPath:
-      NSTemporaryDirectory() + url.lastPathComponent! + ".iconset", isDirectory: true)
-
-    // Build the iconset.
-    try writeIconsetToURL(tmpURL)
-
-    // Create the *.icns file.
+    // Create a random iconset within the temporary directory.
+    let tmpURL = try writeToTemporaryDir()
+    // Create the .icns file.
     try runIconUtilWithInput(tmpURL, andOutputURL: url)
-
     // Open the working directory.
-    NSWorkspace.shared().open(try! url.deletingLastPathComponent())
+    NSWorkspace.shared().open(try url.deletingLastPathComponent())
   }
 
-
-  ///  Saves the resized images as iconset to the supplied URL.
+  /// Create a new iconset within the user's temporary directory.
   ///
-  ///  - parameter url: Path the location where to save the iconset.
-  ///  - throws: A MissingURL error, in case the supplied url cant be unwrapped.
-  func writeIconsetToURL(_ url: URL?) throws {
-    // Unwrap the given url.
-    guard let url = url else {
-      throw IconsetError.missingURL
+  /// - returns: The URL where the iconset were written to.
+  private func writeToTemporaryDir() throws -> URL {
+    // Create a randomly named dictionary.
+    let icnSet = "\(Int(arc4random_uniform(99999) + 10000)).iconset/"
+    let tmpURL = URL(fileURLWithPath: NSTemporaryDirectory() + icnSet, isDirectory: true)
+    // Create the temporary directory.
+    print(tmpURL.path!)
+    try FileManager.default.createDirectory(at: tmpURL, withIntermediateDirectories: true, attributes: nil)
+    // Save every single associated image.
+    for image in images {
+      try image.writeToURL(tmpURL)
     }
-
-    // Create the iconset directory, if not already existent.
-    try FileManager.default.createDirectory(at: url,
-                                                            withIntermediateDirectories: true,
-                                                            attributes: nil)
-
-    // For each image in the dictionary...
-    for (size, image) in images {
-      // ...append the appropriate file name to the given url,...
-      let imgURL = try! url.appendingPathComponent("icon_\(size).png", isDirectory: false)
-
-      // ...create a png representation and...
-      guard let png = image.PNGRepresentation() else {
-        continue
-      }
-
-      // ...write the png file to the HD.
-      try png.write(to: imgURL, options: .atomic)
-    }
+    return tmpURL
   }
-
 
   ///  Executes iconutil with the given url as input path.
   ///
@@ -111,25 +86,21 @@ class Iconset {
   ///  - parameter output: Path to the location, where to save the generated icns file.
   ///
   ///  - throws: Throws a MissingURL error, in case one of the supplied urls cant be unwrapped.
-  func runIconUtilWithInput(_ input: URL?, andOutputURL output: URL?) throws {
-    // Unwrap the optional url.
-    guard let input = input, output = output else {
+  private func runIconUtilWithInput(_ input: URL?, andOutputURL output: URL?) throws {
+    guard let input  = input,
+          var output = output else {
       throw IconsetError.missingURL
     }
-
-    // Create a new task.
+    if output.pathExtension != "icns" {
+      output = try output.appendingPathExtension("icns")
+    }
     let iconUtil = Task()
-
-    // Append the .icns file extension to the output path.
-    let outputURL = try! output.appendingPathExtension("icns")
-
-    // Configure the NSTask and fire it up.
+    // Configure and launch the Task.
     iconUtil.launchPath = "/usr/bin/iconutil"
-    iconUtil.arguments  = ["-c", "icns", "-o", outputURL.path!, input.path!]
+    iconUtil.arguments  = ["-c", "icns", "-o", output.path!, input.path!]
     iconUtil.launch()
     iconUtil.waitUntilExit()
-
-    // Delete the .iconset
+    // Delete the temporary iconset
     try FileManager.default.removeItem(at: input)
   }
 }
