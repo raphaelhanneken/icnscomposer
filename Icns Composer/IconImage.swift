@@ -33,7 +33,7 @@ import Cocoa
 /// - at2x: A Scale of @2x
 /// - at3x: A Scale of @3x
 enum ImageScale: String {
-  case x1 = ""
+  case x1 = "@1x"
   case x2 = "@2x"
 }
 
