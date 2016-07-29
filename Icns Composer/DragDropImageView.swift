@@ -34,52 +34,50 @@ class DragDropImageView: NSImageView, NSDraggingSource {
   var mouseDownEvent: NSEvent?
 
 
-
   override init(frame frameRect: NSRect) {
     super.init(frame: frameRect)
 
     // Assure editable is set to true, to enable drop capabilities.
-    self.editable = true
+    self.isEditable = true
   }
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
 
     // Assure editable is set to true, to enable drop capabilities.
-    self.editable = true
+    self.isEditable = true
   }
 
-  override func drawRect(dirtyRect: NSRect) {
-    super.drawRect(dirtyRect)
+  override func draw(_ dirtyRect: NSRect) {
+    super.draw(dirtyRect)
   }
-
 
 
   // MARK: - NSDraggingSource
 
   // Since we only want to copy/delete the current image we register ourselfes
   // for .Copy and .Delete operations.
-  func draggingSession(session: NSDraggingSession, sourceOperationMaskForDraggingContext
-    context: NSDraggingContext) -> NSDragOperation {
-    return NSDragOperation.Copy.union(.Delete)
+  func draggingSession(_ session: NSDraggingSession,
+                       sourceOperationMaskFor context: NSDraggingContext) -> NSDragOperation {
+    return NSDragOperation.copy.union(.delete)
   }
 
   // Clear the ImageView on delete operation; e.g. the image gets
   // dropped on the trash can in the dock.
-  func draggingSession(session: NSDraggingSession, endedAtPoint screenPoint: NSPoint,
+  func draggingSession(_ session: NSDraggingSession, endedAt screenPoint: NSPoint,
                        operation: NSDragOperation) {
-    if operation == .Delete {
+    if operation == .delete {
       self.image = nil
     }
   }
 
   // Track mouse down events and safe the to the poperty.
-  override func mouseDown(theEvent: NSEvent) {
+  override func mouseDown(_ theEvent: NSEvent) {
     self.mouseDownEvent = theEvent
   }
 
   // Track mouse dragged events to handle dragging sessions.
-  override func mouseDragged(theEvent: NSEvent) {
+  override func mouseDragged(_ theEvent: NSEvent) {
     // Calculate the drag distance...
     let mouseDown    = self.mouseDownEvent!.locationInWindow
     let dragPoint    = theEvent.locationInWindow
@@ -101,7 +99,7 @@ class DragDropImageView: NSImageView, NSDraggingSource {
       let draggingItem        = NSDraggingItem(pasteboardWriter: image)
       // Calculate the mouseDown location from the window's coordinate system to the
       // ImageView's coordinate system, to use it as origin for the dragging frame.
-      let draggingFrameOrigin = convertPoint(mouseDown, fromView: nil)
+      let draggingFrameOrigin = convert(mouseDown, from: nil)
       // Build the dragging frame and offset it by half the image size on each axis
       // to center the mouse cursor within the dragging frame.
       let draggingFrame       = NSRect(origin: draggingFrameOrigin, size: img.size)
@@ -120,7 +118,7 @@ class DragDropImageView: NSImageView, NSDraggingSource {
       }
 
       // Begin actual dragging session. Woohow!
-      beginDraggingSessionWithItems([draggingItem], event: mouseDownEvent!, source: self)
+      beginDraggingSession(with: [draggingItem], event: mouseDownEvent!, source: self)
     }
   }
 }
