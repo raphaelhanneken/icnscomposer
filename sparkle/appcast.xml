@@ -7,6 +7,26 @@
         <language>en</language>
 
         <item>
+          <title>Icns Composer v1.3</title>
+          <description>
+            <![CDATA[
+            <p>
+              Rebuild with Swift 3.0 and Xcode 8 beta 2 (8S162m).
+            </p>
+            ]]>
+          </description>
+          <pubDate>Fri, 29 Jul 2016 12:00:00 +0100</pubDate>
+          <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+          <enclosure
+            url="https://github.com/raphaelhanneken/icnscomposer/releases/download/1.3/IcnsComposer.dmg"
+            sparkle:version="65"
+            sparkle:shortVersionString="1.3"
+            sparkle:dsaSignature="MCwCFEF36HgmiOys4j09spE9495jow+IAhQo+wLiGSmztZuc4BdsTz2kEvQMqQ=="
+            length="7637370"
+            type="application/octet-stream" />
+        </item>
+
+        <item>
           <title>Icns Composer v1.2.3</title>
           <description>
             <![CDATA[
