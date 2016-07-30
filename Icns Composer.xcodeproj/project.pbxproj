@@ -14,10 +14,26 @@
 		20FA7A871B14E9FE00E7B8E7 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FA7A811B14E9FE00E7B8E7 /* MainWindowController.swift */; };
 		20FA7A8B1B14EA2500E7B8E7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FA7A8A1B14EA2500E7B8E7 /* MainMenu.xib */; };
 		8E1825C51D49F45E001259F1 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1825C41D49F45E001259F1 /* IconImage.swift */; };
+		8E3F61751D4D1EFD008A10D6 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3F61741D4D1EFD008A10D6 /* Sparkle.framework */; };
+		8E3F61761D4D1EFD008A10D6 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3F61741D4D1EFD008A10D6 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8E4E684F1BDAACEF004980A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4E684E1BDAACEF004980A0 /* Assets.xcassets */; };
 		8E7A659C1B5BB935003FC529 /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A659B1B5BB935003FC529 /* NSImageExtensions.swift */; };
 		8EA095AF1B583DC500DA6A2E /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8EA095AE1B583DC500DA6A2E /* dsa_pub.pem */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8E3F61771D4D1EFD008A10D6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8E3F61761D4D1EFD008A10D6 /* Sparkle.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		20FA7A5D1B14E9D900E7B8E7 /* Icns Composer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Icns Composer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +45,7 @@
 		20FA7A811B14E9FE00E7B8E7 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		20FA7A8A1B14EA2500E7B8E7 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		8E1825C41D49F45E001259F1 /* IconImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
+		8E3F61741D4D1EFD008A10D6 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
 		8E4E684E1BDAACEF004980A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E7A659B1B5BB935003FC529 /* NSImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
 		8EA095AE1B583DC500DA6A2E /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
@@ -39,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E3F61751D4D1EFD008A10D6 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +117,7 @@
 		8EA095A91B583B4B00DA6A2E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E3F61741D4D1EFD008A10D6 /* Sparkle.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,6 +133,7 @@
 				20FA7A5A1B14E9D900E7B8E7 /* Frameworks */,
 				20FA7A5B1B14E9D900E7B8E7 /* Resources */,
 				8E4CB2331CA196F4001D52C4 /* ShellScript */,
+				8E3F61771D4D1EFD008A10D6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -295,6 +315,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "Icns Composer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -313,6 +334,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "Icns Composer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
