@@ -29,7 +29,7 @@
 import Cocoa
 
 
-enum IconsetError: ErrorProtocol {
+enum IconsetError: Error {
   case missingURL
 }
 
@@ -60,18 +60,18 @@ struct Iconset {
     // Create the .icns file.
     try runIconUtilWithInput(tmpURL, andOutputURL: url)
     // Open the working directory.
-    NSWorkspace.shared().open(try url.deletingLastPathComponent())
+    NSWorkspace.shared().open(url.deletingLastPathComponent())
   }
 
   /// Create a new iconset within the user's temporary directory.
   ///
   /// - returns: The URL where the iconset were written to.
-  private func writeToTemporaryDir() throws -> URL {
+  fileprivate func writeToTemporaryDir() throws -> URL {
     // Create a randomly named dictionary.
     let icnSet = "\(Int(arc4random_uniform(99999) + 10000)).iconset/"
     let tmpURL = URL(fileURLWithPath: NSTemporaryDirectory() + icnSet, isDirectory: true)
     // Create the temporary directory.
-    print(tmpURL.path!)
+    print(tmpURL.path)
     try FileManager.default.createDirectory(at: tmpURL, withIntermediateDirectories: true, attributes: nil)
     // Save every single associated image.
     for image in images {
@@ -92,12 +92,12 @@ struct Iconset {
       throw IconsetError.missingURL
     }
     if output.pathExtension != "icns" {
-      output = try output.appendingPathExtension("icns")
+      output = output.appendingPathExtension("icns")
     }
-    let iconUtil = Task()
+    let iconUtil = Process()
     // Configure and launch the Task.
     iconUtil.launchPath = "/usr/bin/iconutil"
-    iconUtil.arguments  = ["-c", "icns", "-o", output.path!, input.path!]
+    iconUtil.arguments  = ["-c", "icns", "-o", output.path, input.path]
     iconUtil.launch()
     iconUtil.waitUntilExit()
     // Delete the temporary iconset

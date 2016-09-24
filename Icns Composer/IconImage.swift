@@ -71,7 +71,7 @@ struct IconImage {
   /// - parameter url: The url where to save the image.
   func writeToURL(_ url: URL) throws {
     // Define the image name.
-    let imgURL = try url.appendingPathComponent(filename, isDirectory: false)
+    let imgURL = url.appendingPathComponent(filename, isDirectory: false)
 
     // Get the png representation of the image and write it to the supplied url.
     if let png = image?.PNGRepresentation() {

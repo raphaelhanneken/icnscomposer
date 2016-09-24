@@ -72,12 +72,12 @@ class DragDropImageView: NSImageView, NSDraggingSource {
   }
 
   // Track mouse down events and safe the to the poperty.
-  override func mouseDown(_ theEvent: NSEvent) {
+  override func mouseDown(with theEvent: NSEvent) {
     self.mouseDownEvent = theEvent
   }
 
   // Track mouse dragged events to handle dragging sessions.
-  override func mouseDragged(_ theEvent: NSEvent) {
+  override func mouseDragged(with theEvent: NSEvent) {
     // Calculate the drag distance...
     let mouseDown    = self.mouseDownEvent!.locationInWindow
     let dragPoint    = theEvent.locationInWindow
