@@ -7,6 +7,26 @@
         <language>en</language>
 
         <item>
+          <title>Icns Composer v1.3.1</title>
+          <description>
+            <![CDATA[
+            <p>
+              Ready for macOS Sierra
+            </p>
+            ]]>
+          </description>
+          <pubDate>Sat, 24 Sep 2016 18:00:00 +0100</pubDate>
+          <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+          <enclosure
+            url="https://github.com/raphaelhanneken/icnscomposer/releases/download/1.3.1/Icns.Composer.dmg"
+            sparkle:version="71"
+            sparkle:shortVersionString="1.3.1"
+            sparkle:dsaSignature="MC0CFCkxiUjGh0FQ2pEisNsQ9Mbl68GGAhUAgAAWweXhuR6bRSdSFiUY+huG1ZY="
+            length="7127491"
+            type="application/octet-stream" />
+        </item>
+
+        <item>
           <title>Icns Composer v1.3</title>
           <description>
             <![CDATA[
