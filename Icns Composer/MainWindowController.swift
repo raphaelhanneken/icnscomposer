@@ -56,9 +56,12 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     guard let window = window else {
       return
     }
-    // Create a new NSSavePanel.
+    // Create and configure a new NSSavePanel.
     let dialog = NSSavePanel()
-    // Display a save dialog.
+    dialog.allowedFileTypes = ["icns"]
+    dialog.allowsOtherFileTypes = false
+
+    // Display the save dialog.
     dialog.beginSheetModal(for: window) { (result: Int) -> Void in
       if result == NSFileHandlingPanelOKButton {
         do {
