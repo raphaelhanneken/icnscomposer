@@ -29,22 +29,28 @@
 import Cocoa
 
 
+/// Exceptions for Iconset
+///
+/// - missingURL: The given URL, to save the icns file to, couldn't be unwrapped.
 enum IconsetError: Error {
   case missingURL
 }
 
 
-/// Handles the iconset creationg.
+/// Handles the iconset creation.
 struct Iconset {
 
   /// Holds the necessary images to create an iconset that conforms iconutil
-  var images = Array<IconImage>()
+  var images = [String:IconImage]()
 
-  /// Add a new IconImage to the iconset.
-  ///
-  /// - parameter image: The IconImage to add.
-  mutating func add(_ image: IconImage) {
-    images.append(image)
+  subscript(filename: String) -> IconImage? {
+    get {
+      return images[filename]
+    }
+
+    set {
+      images[filename] = newValue
+    }
   }
 
   ///  Saves an icns file to the supplied url.
@@ -71,10 +77,9 @@ struct Iconset {
     let icnSet = "\(Int(arc4random_uniform(99999) + 10000)).iconset/"
     let tmpURL = URL(fileURLWithPath: NSTemporaryDirectory() + icnSet, isDirectory: true)
     // Create the temporary directory.
-    print(tmpURL.path)
     try FileManager.default.createDirectory(at: tmpURL, withIntermediateDirectories: true, attributes: nil)
     // Save every single associated image.
-    for image in images {
+    for (_, image) in images {
       try image.writeToURL(tmpURL)
     }
     return tmpURL
@@ -94,6 +99,7 @@ struct Iconset {
     if output.pathExtension != "icns" {
       output = output.appendingPathExtension("icns")
     }
+    // Create a new process to run /usr/bin/iconutil
     let iconUtil = Process()
     // Configure and launch the Task.
     iconUtil.launchPath = "/usr/bin/iconutil"

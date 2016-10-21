@@ -85,15 +85,14 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
   ///
   /// - parameter sender: An NSImageView
   @IBAction func resize(_ sender: NSImageView) {
-    // Add an image scaled @1x.
-    if let img = IconImage(sender.image,
-                           withSize: NSSize(width: sender.tag / 2, height: sender.tag / 2), andScale: .x1) {
-      iconset.add(img)
-    }
-    // Add an image scaled @1x.
-    if let img = IconImage(sender.image,
-                           withSize: NSSize(width: sender.tag, height: sender.tag), andScale: .x2) {
-      iconset.add(img)
+    // Create a new image scaled @1x
+    let img = IconImage(sender.image, withSize: NSSize(width: sender.tag / 2, height: sender.tag / 2), andScale: .x1)
+    // Create a new image scaled @2x
+    let img2x = IconImage(sender.image, withSize: NSSize(width: sender.tag, height: sender.tag), andScale: .x2)
+    // Add the generated images to the iconset.
+    if let filename1x = img?.filename, let filename2x = img2x?.filename {
+      iconset[filename1x] = img
+      iconset[filename2x] = img
     }
   }
 }
