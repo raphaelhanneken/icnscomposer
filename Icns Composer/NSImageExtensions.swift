@@ -45,7 +45,7 @@ extension NSImage {
   ///  - returns:        The resized copy of the given image.
   func copyWithSize(_ size: NSSize) -> NSImage? {
     // Create a new rect with given width and height
-    let frame = NSMakeRect(0, 0, size.width, size.height)
+    let frame = NSRect(x: 0, y: 0, width: size.width, height: size.height)
     // Get the best representation for the given size.
     guard let rep = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
       return nil
@@ -103,7 +103,8 @@ extension NSImage {
     let y = floor((resized.height - size.height) / 2)
 
     // Create the cropping frame.
-    let frame = NSMakeRect(x, y, size.width, size.height)
+//    let frame = NSMakeRect(x, y, size.width, size.height)
+    let frame = NSRect(x: x, y: y, width: size.width, height: size.height)
 
     // Get the best representation of the image for the given cropping frame.
     guard let rep = resized.bestRepresentation(for: frame, context: nil, hints: nil) else {
@@ -116,7 +117,7 @@ extension NSImage {
     img.lockFocus()
     defer { img.unlockFocus() }
 
-    if rep.draw(in: NSMakeRect(0, 0, size.width, size.height),
+    if rep.draw(in: NSRect(x: 0, y: 0, width: size.width, height: size.height),
                 from: frame,
                 operation: NSCompositingOperation.copy,
                 fraction: 1.0,
@@ -138,7 +139,7 @@ extension NSImage {
     self.lockFocus()
     defer { self.unlockFocus() }
     // Define a new rect
-    let imgRect = NSMakeRect(0, 0, self.width, self.height)
+    let imgRect = NSRect(x: 0, y: 0, width: self.width, height: self.height)
     // Get the bitmap representation of self.
     guard let rep = NSBitmapImageRep(focusedViewRect: imgRect) else {
       return nil
