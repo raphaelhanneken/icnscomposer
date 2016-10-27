@@ -25,14 +25,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import Cocoa
 
 class DragDropImageView: NSImageView, NSDraggingSource {
 
   /// Holds the last mouse down event, to track the drag distance.
   var mouseDownEvent: NSEvent?
-
 
   override init(frame frameRect: NSRect) {
     super.init(frame: frameRect)
@@ -51,7 +49,6 @@ class DragDropImageView: NSImageView, NSDraggingSource {
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
   }
-
 
   // MARK: - NSDraggingSource
 

@@ -25,9 +25,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import Cocoa
-
 
 /// Exceptions for Iconset
 ///
@@ -35,7 +33,6 @@ import Cocoa
 enum IconsetError: Error {
   case missingURL
 }
-
 
 /// Handles the iconset creation.
 struct Iconset {
