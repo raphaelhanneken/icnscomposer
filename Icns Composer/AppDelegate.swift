@@ -30,28 +30,28 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-  /// Handle the window via MainWindowController.
-  var mainWindowController: MainWindowController?
+    /// Handle the window via MainWindowController.
+    var mainWindowController: MainWindowController?
 
-  func applicationDidFinishLaunching(_ aNotification: Notification) {
-    // Create a new WindowController instance.
-    let mainWindowController = MainWindowController()
-    // Display the associated window on screen.
-    mainWindowController.showWindow(self)
-    // Point the instance variable to the WindowController object.
-    self.mainWindowController = mainWindowController
-  }
-
-  // Reopen mainWindow, when the user clicks on the dock icon.
-  func applicationShouldHandleReopen(_ sender: NSApplication,
-                                     hasVisibleWindows flag: Bool) -> Bool {
-    if let mainWindowController = self.mainWindowController {
-      mainWindowController.showWindow(self)
+    func applicationDidFinishLaunching(_: Notification) {
+        // Create a new WindowController instance.
+        let mainWindowController = MainWindowController()
+        // Display the associated window on screen.
+        mainWindowController.showWindow(self)
+        // Point the instance variable to the WindowController object.
+        self.mainWindowController = mainWindowController
     }
-    return true
-  }
 
-  func applicationWillTerminate(_ aNotification: Notification) {
-    // Insert code here to tear down your application
-  }
+    // Reopen mainWindow, when the user clicks on the dock icon.
+    func applicationShouldHandleReopen(_: NSApplication,
+                                       hasVisibleWindows _: Bool) -> Bool {
+        if let mainWindowController = self.mainWindowController {
+            mainWindowController.showWindow(self)
+        }
+        return true
+    }
+
+    func applicationWillTerminate(_: Notification) {
+        // Insert code here to tear down your application
+    }
 }

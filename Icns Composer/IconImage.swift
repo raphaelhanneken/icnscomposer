@@ -33,49 +33,49 @@ import Cocoa
 /// - at2x: A Scale of @2x
 /// - at3x: A Scale of @3x
 enum ImageScale: String {
-  case x1 = "@1x"
-  case x2 = "@2x"
+    case x1 = "@1x"
+    case x2 = "@2x"
 }
 
 /// Represents a single image of an iconset.
 struct IconImage {
-  /// Holds the image it represents.
-  let image: NSImage?
-  /// The image scale.
-  let scale: ImageScale
-  /// The images size.
-  let size: NSSize
+    /// Holds the image it represents.
+    let image: NSImage?
+    /// The image scale.
+    let scale: ImageScale
+    /// The images size.
+    let size: NSSize
 
-  var filename: String {
-    switch scale {
-    case .x1:
-      return "icon_\(Int(size.width))x\(Int(size.height))\(scale.rawValue).png"
-    case .x2:
-      return "icon_\(Int(size.width / 2))x\(Int(size.height / 2))\(scale.rawValue).png"
+    var filename: String {
+        switch scale {
+        case .x1:
+            return "icon_\(Int(size.width))x\(Int(size.height))\(scale.rawValue).png"
+        case .x2:
+            return "icon_\(Int(size.width / 2))x\(Int(size.height / 2))\(scale.rawValue).png"
+        }
     }
-  }
 
-  /// Initialize a new iconset image.
-  init?(_ image: NSImage?, withSize size: NSSize, andScale scale: ImageScale) {
-    guard let image = image else {
-      return nil
+    /// Initialize a new iconset image.
+    init?(_ image: NSImage?, withSize size: NSSize, andScale scale: ImageScale) {
+        guard let image = image else {
+            return nil
+        }
+        // Resize the supplied image.
+        self.image = image.copyWithSize(size)
+        self.scale = scale
+        self.size = size
     }
-    // Resize the supplied image.
-    self.image = image.copyWithSize(size)
-    self.scale = scale
-    self.size  = size
-  }
 
-  /// Write the iconset image to the supplied url.
-  ///
-  /// - parameter url: The url where to save the image.
-  func writeToURL(_ url: URL) throws {
-    // Define the image name.
-    let imgURL = url.appendingPathComponent(filename, isDirectory: false)
+    /// Write the iconset image to the supplied url.
+    ///
+    /// - parameter url: The url where to save the image.
+    func writeToURL(_ url: URL) throws {
+        // Define the image name.
+        let imgURL = url.appendingPathComponent(filename, isDirectory: false)
 
-    // Get the png representation of the image and write it to the supplied url.
-    if let png = image?.PNGRepresentation() {
-      try png.write(to: imgURL, options: .atomic)
+        // Get the png representation of the image and write it to the supplied url.
+        if let png = image?.PNGRepresentation() {
+            try png.write(to: imgURL, options: .atomic)
+        }
     }
-  }
 }
