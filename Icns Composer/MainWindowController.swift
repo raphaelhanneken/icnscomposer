@@ -96,7 +96,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         // Add the generated images to the iconset.
         if let filename1x = img?.filename, let filename2x = img2x?.filename {
             iconset[filename1x] = img
-            iconset[filename2x] = img
+            iconset[filename2x] = img2x
         }
     }
 }
