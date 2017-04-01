@@ -56,7 +56,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         }
         // Create and configure a new NSSavePanel.
         let dialog = NSSavePanel()
-        dialog.allowedFileTypes = ["icns"]
+        dialog.allowedFileTypes     = ["icns"]
         dialog.allowsOtherFileTypes = false
 
         // Display the save dialog.
@@ -85,12 +85,13 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     @IBAction func resize(_ sender: NSImageView) {
         // Create a new image scaled @1x
         let img = IconImage(sender.image,
-                            withSize: NSSize(width: sender.tag / 2, height: sender.tag / 2),
-                            andScale: .x1)
+                            withSize: NSSize(width: Int(sender.tag / 2), height: Int(sender.tag / 2)),
+                            andScale: .scale1x)
+
         // Create a new image scaled @2x
         let img2x = IconImage(sender.image,
                               withSize: NSSize(width: sender.tag, height: sender.tag),
-                              andScale: .x2)
+                              andScale: .scale2x)
 
         // Add the generated images to the iconset.
         if let filename1x = img?.filename, let filename2x = img2x?.filename {
