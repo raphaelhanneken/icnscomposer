@@ -64,7 +64,6 @@ struct IconImage {
         self.image = image.resize(toSize: size)
         self.scale = scale
         self.size  = size
-        print("Image \(filename): \(self.image?.width)x\(self.image?.height)\(scale)\n")
     }
 
     /// Write the iconset image to the supplied url.

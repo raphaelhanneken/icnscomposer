@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3.1</string>
+	<string>1.3.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>76</string>
+	<string>83</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
@@ -30,13 +30,6 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>raphaelhanneken.de</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
 			<key>github-cloud.s3.amazonaws.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
@@ -45,6 +38,13 @@
 				<true/>
 			</dict>
 			<key>github.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+			<key>raphaelhanneken.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
