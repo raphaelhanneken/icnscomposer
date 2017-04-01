@@ -7,6 +7,27 @@
         <language>en</language>
 
         <item>
+          <title>Icns Composer v1.3.3</title>
+          <description>
+            <![CDATA[
+            <ul>
+              <li>Bug Fixes</li>
+              <li>New app icon</li>
+            </ul>
+            ]]>
+          </description>
+          <pubDate>Sat, 01 Apr 2017 10:00:00 +0100</pubDate>
+          <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+          <enclosure
+            url="https://github.com/raphaelhanneken/icnscomposer/releases/download/1.3.3/Icns.Composer.dmg"
+            sparkle:version="84"
+            sparkle:shortVersionString="1.3.3"
+            sparkle:dsaSignature="MCwCFC/Ac/bnl9iYYnMnkPt+nz0szG6ZAhQ9uos7fzEwi1zzId6JViucWz4CuA=="
+            length="9956278"
+            type="application/octet-stream" />
+        </item>
+
+        <item>
           <title>Icns Composer v1.3.2</title>
           <description>
             <![CDATA[
