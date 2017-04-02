@@ -65,11 +65,11 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                 do {
                     try self.iconset.writeToURL(dialog.url)
                 } catch {
-                    // Create an alert to inform the user something went terribly wrong.
+                    // Create an alert to inform the user something went wrong.
                     let alert = NSAlert()
 
-                    alert.messageText = "This should not have happened!"
-                    alert.informativeText = "The icns file could not be saved due to a critical error."
+                    alert.messageText = "Oh snap!"
+                    alert.informativeText = "Something went somewhere terribly wrong."
                     alert.beginSheetModal(for: window, completionHandler: nil)
 
                     print(error)

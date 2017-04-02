@@ -43,8 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     // Reopen mainWindow, when the user clicks on the dock icon.
-    func applicationShouldHandleReopen(_: NSApplication,
-                                       hasVisibleWindows _: Bool) -> Bool {
+    func applicationShouldHandleReopen(_: NSApplication, hasVisibleWindows _: Bool) -> Bool {
         if let mainWindowController = self.mainWindowController {
             mainWindowController.showWindow(self)
         }
