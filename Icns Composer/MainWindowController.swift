@@ -33,8 +33,8 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     /// Handles the icon creation process.
     var iconset = Iconset()
 
-    override var windowNibName: String? {
-        return "MainWindow"
+    override var windowNibName: NSNib.Name {
+        return NSNib.Name("MainWindow")
     }
 
     override func windowDidLoad() {
@@ -60,8 +60,8 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         dialog.allowsOtherFileTypes = false
 
         // Display the save dialog.
-        dialog.beginSheetModal(for: window) { (result: Int) -> Void in
-            if result == NSFileHandlingPanelOKButton {
+        dialog.beginSheetModal(for: window) { (result: NSApplication.ModalResponse) -> Void in
+            if result == NSApplication.ModalResponse.OK {
                 do {
                     try self.iconset.writeToURL(dialog.url)
                 } catch {

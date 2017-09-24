@@ -63,7 +63,7 @@ struct Iconset {
         // Create the .icns file.
         try runIconUtilWithInput(tmpURL, andOutputURL: url)
         // Open the working directory.
-        NSWorkspace.shared().open(url.deletingLastPathComponent())
+        NSWorkspace.shared.open(url.deletingLastPathComponent())
     }
 
     /// Create a new iconset within the user's temporary directory.
