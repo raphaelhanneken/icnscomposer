@@ -7,164 +7,25 @@
         <language>en</language>
 
         <item>
-          <title>Icns Composer v1.3.4</title>
-          <description>
-            <![CDATA[
-            <ul>
-              <li>Bug Fixes</li>
-            </ul>
-            ]]>
-          </description>
-          <pubDate>Sat, 01 Apr 2017 12:00:00 +0100</pubDate>
-          <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
-          <enclosure
-            url="https://github.com/raphaelhanneken/icnscomposer/releases/download/1.3.4/Icns.Composer.dmg"
-            sparkle:version="87"
-            sparkle:shortVersionString="1.3.4"
-            sparkle:dsaSignature="MCwCFEbh7bhHBHa/iRB6tvfLxHO8Cit0AhRKWBkXxd7zaRSH7O8msKioDyAwWQ=="
-            length="9944679"
-            type="application/octet-stream" />
+            <title>Icns Composer v2020.11.0</title>
+            <description><![CDATA[
+                <ul>
+                  <li>Support for Macs with an Apple Silicon chip</li>
+                  <li>Support for macOS Big Sur</li>
+                  <li>New application icon to match the new Big Sur icon style</li>
+                </ul>
+                <p>Build with Xcode Version 12.2 (12B45b) using Swift 5.3</p>
+            ]]></description>
+            <pubDate>Mon, 15 Nov 2020 15:00:00 +0100</pubDate>
+            <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://github.com/raphaelhanneken/icnscomposer/releases/download/2020.11.0/Icns.Composer.dmg"
+                sparkle:version="94"
+                sparkle:shortVersionString="2020.11.0"
+                sparkle:dsaSignature="MCwCFF/6950QQaAM06pHmoglqUxs/x/8AhQlhRfb5ECz+7ZmU/CAaAxgyzWiAw=="
+                length="12712176"
+                type="application/octet-stream" />
         </item>
 
-        <item>
-          <title>Icns Composer v1.3.3</title>
-          <description>
-            <![CDATA[
-            <ul>
-              <li>Bug Fixes</li>
-              <li>New app icon</li>
-            </ul>
-            ]]>
-          </description>
-          <pubDate>Sat, 01 Apr 2017 10:00:00 +0100</pubDate>
-          <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
-          <enclosure
-            url="https://github.com/raphaelhanneken/icnscomposer/releases/download/1.3.3/Icns.Composer.dmg"
-            sparkle:version="84"
-            sparkle:shortVersionString="1.3.3"
-            sparkle:dsaSignature="MCwCFC/Ac/bnl9iYYnMnkPt+nz0szG6ZAhQ9uos7fzEwi1zzId6JViucWz4CuA=="
-            length="9956278"
-            type="application/octet-stream" />
-        </item>
-
-        <item>
-          <title>Icns Composer v1.3.2</title>
-          <description>
-            <![CDATA[
-            <p>
-              Minor improvements.
-            </p>
-            ]]>
-          </description>
-          <pubDate>Fri, 21 Oct 2016 16:00:00 +0100</pubDate>
-          <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
-          <enclosure
-            url="https://github.com/raphaelhanneken/icnscomposer/releases/download/1.3.2/Icns.Composer.dmg"
-            sparkle:version="76"
-            sparkle:shortVersionString="1.3.2"
-            sparkle:dsaSignature="MCwCFF7YDIt8TjICz4HqHXHZcU4otLV9AhRyW0LTC/2f4yZp4TfjKPauh0b17Q=="
-            length="7128713"
-            type="application/octet-stream" />
-        </item>
-
-        <item>
-          <title>Icns Composer v1.3.1</title>
-          <description>
-            <![CDATA[
-            <p>
-              Ready for macOS Sierra
-            </p>
-            ]]>
-          </description>
-          <pubDate>Sat, 24 Sep 2016 18:00:00 +0100</pubDate>
-          <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
-          <enclosure
-            url="https://github.com/raphaelhanneken/icnscomposer/releases/download/1.3.1/Icns.Composer.dmg"
-            sparkle:version="71"
-            sparkle:shortVersionString="1.3.1"
-            sparkle:dsaSignature="MC0CFCkxiUjGh0FQ2pEisNsQ9Mbl68GGAhUAgAAWweXhuR6bRSdSFiUY+huG1ZY="
-            length="7127491"
-            type="application/octet-stream" />
-        </item>
-
-        <item>
-          <title>Icns Composer v1.3</title>
-          <description>
-            <![CDATA[
-            <p>
-              Rebuild with Swift 3.0 and Xcode 8 beta 2 (8S162m).
-            </p>
-            ]]>
-          </description>
-          <pubDate>Fri, 29 Jul 2016 12:00:00 +0100</pubDate>
-          <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
-          <enclosure
-            url="https://github.com/raphaelhanneken/icnscomposer/releases/download/1.3/IcnsComposer.dmg"
-            sparkle:version="65"
-            sparkle:shortVersionString="1.3"
-            sparkle:dsaSignature="MCwCFEF36HgmiOys4j09spE9495jow+IAhQo+wLiGSmztZuc4BdsTz2kEvQMqQ=="
-            length="7637370"
-            type="application/octet-stream" />
-        </item>
-
-        <item>
-          <title>Icns Composer v1.2.3</title>
-          <description>
-            <![CDATA[
-            <p>
-              Rebuild with Swift 2.2 and Xcode 7.3.
-            </p>
-            ]]>
-          </description>
-          <pubDate>Tue, 22 Mar 2016 18:00:00 +0100</pubDate>
-          <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
-          <enclosure
-            url="https://github.com/raphaelhanneken/icnscomposer/releases/download/1.2.3/IcnsComposer.dmg"
-            sparkle:version="52"
-            sparkle:shortVersionString="1.2.3"
-            sparkle:dsaSignature="MCwCFCqazA8OeF9IkkUhn9e4PpIRjM8WAhQE7wKBc2h9SFRYZLqRr1XbpSpmEA=="
-            length="6396601"
-            type="application/octet-stream" />
-        </item>
-
-        <item>
-          <title>Icns Composer v1.2.2</title>
-          <description>
-            <![CDATA[
-            <p>
-              Rebuild with Swift 2.1.1 and Xcode 7.2 (7C68).
-            </p>
-            ]]>
-          </description>
-          <pubDate>Thu, 10 Dec 2015 12:00:00 +0100</pubDate>
-          <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
-          <enclosure
-            url="https://github.com/raphaelhanneken/icnscomposer/releases/download/1.2.2/Icns.Composer.dmg"
-            sparkle:version="50"
-            sparkle:shortVersionString="1.2"
-            sparkle:dsaSignature="MCwCFGy18ds0oUoqF4rccWNTri6bZQPJAhRLjoIcOWoCPPbz2nFnoBsBOmzCYQ=="
-            length="5363157"
-            type="application/octet-stream" />
-        </item>
-
-        <item>
-          <title>Icns Composer v1.2.1</title>
-          <description>
-            <![CDATA[
-            <p>
-              Improved App Transport Security.
-            </p>
-            ]]>
-          </description>
-          <pubDate>Thu, 15 Oct 2015 12:00:00 +0100</pubDate>
-          <sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
-          <enclosure
-            url="https://github.com/raphaelhanneken/icnscomposer/releases/download/1.2.1/Icns.Composer.dmg"
-            sparkle:version="47"
-            sparkle:shortVersionString="1.2"
-            sparkle:dsaSignature="MCwCFDsPenfnZ6J1XTllxEd/VQW0NLziAhQISEgyhLuqQOAGjBqaZNdUUX8XcA=="
-            length="5763157"
-            type="application/octet-stream" />
-        </item>
     </channel>
 </rss>
