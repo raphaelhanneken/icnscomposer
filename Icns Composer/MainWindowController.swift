@@ -16,14 +16,6 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         return "MainWindow"
     }
 
-    override func windowDidLoad() {
-        super.windowDidLoad()
-
-        if let window = window {
-            window.titleVisibility = .hidden
-        }
-    }
-
     /// Starts the export process for the current iconset.
     ///
     /// - parameter sender: NSToolbarItem that sent the export message.

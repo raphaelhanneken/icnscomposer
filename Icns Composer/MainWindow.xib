@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11163.2" systemVersion="16A254g" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11163.2"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Icns_Composer" customModuleProvider="target">
@@ -12,15 +13,15 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="bU5-GO-Lym">
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="bU5-GO-Lym">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="109" y="131" width="683" height="464"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
             <value key="minSize" type="size" width="683" height="464"/>
             <view key="contentView" id="2Vn-Sl-nnP">
                 <rect key="frame" x="0.0" y="0.0" width="683" height="464"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="1024" translatesAutoresizingMaskIntoConstraints="NO" id="l26-H8-fwE" userLabel="1024" customClass="DragDropImageView" customModule="Icns_Composer" customModuleProvider="target">
                         <rect key="frame" x="17" y="17" width="417" height="417"/>
@@ -151,14 +152,14 @@
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="DRW-kw-jZo"/>
                     <toolbarItem implicitItemIdentifier="E4905669-022F-493E-B8D6-1137304FAF67" label="Export" paletteLabel="Export" image="NSShareTemplate" id="sot-uA-V2w">
                         <nil key="toolTip"/>
-                        <size key="minSize" width="44" height="28"/>
-                        <size key="maxSize" width="44" height="28"/>
-                        <button key="view" verticalHuggingPriority="750" id="tCx-6n-QbZ">
-                            <rect key="frame" x="0.0" y="14" width="44" height="28"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="NSShareTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jJr-ef-tEl">
+                        <size key="minSize" width="34" height="34"/>
+                        <size key="maxSize" width="34" height="34"/>
+                        <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tCx-6n-QbZ">
+                            <rect key="frame" x="4" y="14" width="34" height="29"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="NSShareTemplate" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jJr-ef-tEl">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
+                                <font key="font" metaFont="miniSystem"/>
                             </buttonCell>
                         </button>
                         <connections>
@@ -178,6 +179,6 @@
         </window>
     </objects>
     <resources>
-        <image name="NSShareTemplate" width="11" height="16"/>
+        <image name="NSShareTemplate" width="15" height="17"/>
     </resources>
 </document>
