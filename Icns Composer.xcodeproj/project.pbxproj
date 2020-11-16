@@ -98,9 +98,9 @@
 		20FA7A601B14E9D900E7B8E7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8E4E684E1BDAACEF004980A0 /* Assets.xcassets */,
 				20FA7A611B14E9D900E7B8E7 /* Info.plist */,
 				8EA095AE1B583DC500DA6A2E /* dsa_pub.pem */,
-				8E4E684E1BDAACEF004980A0 /* Assets.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -166,6 +166,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
