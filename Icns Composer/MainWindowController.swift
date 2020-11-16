@@ -13,7 +13,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     var iconset = Iconset()
 
     override var windowNibName: NSNib.Name {
-        return NSNib.Name("MainWindow")
+        return "MainWindow"
     }
 
     override func windowDidLoad() {

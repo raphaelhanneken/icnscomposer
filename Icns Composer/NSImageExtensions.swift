@@ -82,6 +82,7 @@ extension NSImage {
             return nil
         }
 
+        // swiftlint:disable identifier_name
         let x = floor((resized.width - size.width) / 2)
         let y = floor((resized.height - size.height) / 2)
         let frame = NSRect(x: x, y: y, width: width, height: height)
